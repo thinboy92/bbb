@@ -26,3 +26,34 @@ com/articles/using-pull-requests).
 ##### On Flask
 
 Please refer to README to check the milestones. 
+
+*Always remember to activate virtual environment and pip install necessary requirements*
+
+##### Initial workflow(For working on existing project on Github)
+
+*Must fork the project on Github first*
+
+* `cd /path/to/folder`
+* `git clone git@github.com:<yourgithubusername>/bbb.git`
+* `cd bbb`
+* `virtualenv venv --distribute`
+* `source venv/bin/activate`
+* `pip install -r requirements.txt`
+* `git remote add upstream git@github.com:afeezaziz/bbb.git`
+
+##### To make changes workflow(For working on existing project on Github)
+
+* `cd /path/to/folder`
+* `git pull upstream`
+* `source venv/bin/activate`
+* `pip install -r requirements.txt`
+* __write your code__
+* `git add .`
+* `git commit -m "message"`
+* `git push origin`
+* Go to original repo on afeezaziz/BBB
+* __pull request__ on github
+
+#### Message 1 (biscuit -> TheEngineer)
+
+*Your message here, if any*.
