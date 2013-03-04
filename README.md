@@ -2,6 +2,18 @@
 
 This is going to be awesome.
 
+## Project milestone:
+
+* ### Learning Flask
+
+	* Static routing
+	* Dynamic routing
+	* HTTP methods
+
+* ### Learning Flask-SQLalchemy
+	
+	* TBD
+
 
 Authors:
 
