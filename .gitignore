@@ -1,0 +1,6 @@
+venv
+*.pyc
+bbb.sublime-project
+bbb.sublime-workspace
+
+
