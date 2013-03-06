@@ -1,0 +1,24 @@
+<html>
+<head>
+	<title>requestData</title>
+</head>
+<body>
+
+{% if name %}
+
+ 	<h1>Hello {{ name }}.</h1>
+	<p>Your location is {{ location }}.</p>
+
+{% else %}
+
+	<form method=POST enctype=multipart/form-data action="{{ url_for('requestDataTheEngineer') }}">
+		<input type="text" name="name" placeholder="name">
+		<input type="text" name="location" placeholder="location">
+		<button type="submit" class="btn">Edit!</button>
+		</fieldset>
+	</form>
+
+{% endif %}
+
+</body>
+</html>

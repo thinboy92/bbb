@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Billionaires Bottles Babes</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="Shortcut Icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.css') }}" type="text/css" media="screen" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap-responsive.css') }}" type="text/css" media="screen" />
+    {% block head %}
+    {% endblock %}
+
+</head>
+<body>
+
+
+<div class="container">
+</div>
+
+  
+
+
+    {% block body %}
+    {% endblock %}
+
+<div class="container" id="footer">
+      <footer>
+      </footer>
+</div>
+
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
+
+
+	
+</body>
+</html>
+

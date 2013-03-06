@@ -1,3 +1,12 @@
-This the static page for TheEngineer.
+<html>
+<head>
+	<title>The Engineer - Static Routing</title>
+</head>
+<body>
+	<img src="{{imageURL}}"/>
+	
+	<!-- The use of static file in the HTML template -->
+	<img src="{{ url_for('static', filename='imageTwo.gif') }}">
 
-No HTML yet. We will learn about that later.
+</body>
+</html>

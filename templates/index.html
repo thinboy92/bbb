@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+
+<!-- FLASH MESSAGE -->
+ {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+<!-- FLASH MESSAGE -->
+
+
+	<div class="container">
+		<h1>Index</h1>
+	</div>
+
+
+{% endblock %}

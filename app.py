@@ -1,30 +1,38 @@
-import os,time,re,math
+import os,re,math
+from time import gmtime, strftime
 
 from flask import Flask,render_template,request,session,g,redirect, url_for,abort, flash
 
 app = Flask(__name__)
 
+
+@app.route('/')
+def index():
+	return render_template('index.html')
+
+
 # Static routing
 # Please check the files ending in .html in the templates folder to understand about rendering template.
 @app.route('/TheEngineer') # Replace TheEngineer with your nickname
 def routeStaticTheEngineer():
-    return render_template('TheEngineer.html')
+	imageURL = 'http://placehold.it/350x150&text=imageOne'
+	return render_template('TheEngineer.html', imageURL=imageURL)
 
 
 """
-HitmanFoo # Static routing and return render_template
-
-
-
-"""
-"""
-biscuit # Static routing and return render_template
+HitmanFoo # Static routing, static files and return render_template
 
 
 
 """
 """
-aronLim # Static routing and return render_template
+biscuit # Static routing, static files and return render_template
+
+
+
+"""
+"""
+aronLim # Static routing, static files and return render_template
 
 
 
@@ -85,28 +93,78 @@ aronLim # Dynamic routing
 
 """
 
+# RequestData
+@app.route('/TheEngineer/requestData',methods=['GET', 'POST'])
+def requestDataTheEngineer():
+	if request.method == 'POST':
+		name = request.form['name']
+		location = request.form['location']
+		return render_template('requestDataTheEngineer.html', **locals())
+	return render_template('requestDataTheEngineer.html')
+"""
+HitmanFoo # Request Data
+
+
+
+"""
+"""
+biscuit # Request Data
+
+
+
+"""
+"""
+aronLim # Request Data
+
+
+
+"""
+
+# Session & url_for & flash
+# App secret should be stored in the configuration section
+app.secret_key = 'ultimate/123Aron/345Killed/456Hitman/987Foo/432By/543Eating/435Biscuit'
+
+@app.route('/TheEngineer/storeSession')
+def storeSessionTheEngineer():
+	session['timeEntered'] = strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime())
+	flash('Data stored in session & you have been redirected to index page')
+	return redirect(url_for('index'))
+
+@app.route('/TheEngineer/checkSession')
+def checkSessionTheEngineer():
+	checkSession = session['timeEntered']
+	return render_template('checkSessionTheEngineer.html', checkSession=checkSession)
+
+@app.route('/TheEngineer/popSession')
+def popSessionTheEngineer():
+	session.pop('timeEntered', None)
+	flash('Data removed from session & you have been redirected to index page')
+	return redirect(url_for('index'))
+"""
+HitmanFoo # Session
+
+
+
+"""
+"""
+biscuit # Session
+
+
+
+"""
+"""
+aronLim # Session
+
+
+
+"""
+
 
 
 if __name__ == '__main__':
 	app.debug = True
 	port = int(os.environ.get('PORT', 5000))
-	app.run(host='0.0.0.0', port=port)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	app.run(host='127.0.0.1', port=port)
 
 
 
