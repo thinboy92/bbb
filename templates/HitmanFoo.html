@@ -1,0 +1,12 @@
+<html>
+<head>
+	<title>Hitman Foo - Static Routing</title>
+</head>
+<body>
+	<img src="{{imageURL}}"/>
+	
+	<!-- The use of static file in the HTML template -->
+	<img src="{{ url_for('static', filename='imageTwo.gif') }}">
+
+</body>
+</html>

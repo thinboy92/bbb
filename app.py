@@ -19,9 +19,11 @@ def routeStaticTheEngineer():
 	return render_template('TheEngineer.html', imageURL=imageURL)
 
 
-"""
 HitmanFoo # Static routing, static files and return render_template
-
+@app.route('/HitmanFoo') 
+def routeStaticHitmanFoo():
+	imageURL = 'http://placehold.it/350x150&text=imageOne'
+	return render_template('HitmanFoo.html', imageURL=imageURL)
 
 
 """
@@ -44,11 +46,13 @@ def routeDynamicTheEngineer(visitor):
 	numOfVisitor = visitor
 	return render_template('DynamicTheEngineer.html', numOfVisitor=numOfVisitor)
 """
-HitmanFoo # Dynamic routing
+
+@app.route('/HitmanFoo/<init:visitor>')
+def routeDynamicHitmanFoo(visitor):
+	numofVisitor = visitor
+	return render_template('DynamicHitmanFoo.html', numOfVisitor=numOfVisitor)
 
 
-
-"""
 """
 biscuit # Dynamic routing
 
@@ -74,12 +78,21 @@ def httpMethodsTheEngineer():
 	if request.method == 'GET':
 		varTheEngineer = 1 + 1
 		return render_template('HTTPmethodsTheEngineer.html', varTheEngineer = varTheEngineer)
-"""
-HitmanFoo # Dynamic routing
+
+
+@app.route('/HitmanFoo/HTTPmethods',methods=['GET', 'POST']
+def httpMethodsHitmanFoo():
+	if request.method == 'POST':
+	# if client/browser is requesting a POST method then execute this. 
+		varHitmanFoo = 1 + 2 
+		return render_template('HTTPmethodsHitmanFoo.html', varHitmanFoo = varHitmanFoo)
+	if request.method == 'GET':
+		varHitmanFoo = "You are so smart man" 
+		return render_template('HTTPmethodsHitmanFoo.html', varHitmanFoo = varHitmanFoo) 
+	
 
 
 
-"""
 """
 biscuit # Dynamic routing
 
@@ -101,12 +114,17 @@ def requestDataTheEngineer():
 		location = request.form['location']
 		return render_template('requestDataTheEngineer.html', **locals())
 	return render_template('requestDataTheEngineer.html')
-"""
-HitmanFoo # Request Data
+
+@app.route('/HitmanFoo/requestData', methods=['GET', 'POST'])
+def requestDataHitmanFoo():
+	if request.method == 'POST':
+		name = request.form['name']
+		location = request.form['location']
+		return render_template('requestDataHitmanFoo.html, **locals()) 
+	return render_template('requestDataHitmanFoo.html')
 
 
 
-"""
 """
 biscuit # Request Data
 
@@ -140,12 +158,24 @@ def popSessionTheEngineer():
 	session.pop('timeEntered', None)
 	flash('Data removed from session & you have been redirected to index page')
 	return redirect(url_for('index'))
-"""
-HitmanFoo # Session
 
+@app.route('/TheHitmanFoo/storeSession')
+def storeSessionHitmanFoo():
+	session['timeEntered'] = strftime("%a, %d %b %Y %H:%M:%S +000", gmtime())
+	flash('Data stored in session & you have been redirected to index page')
+	return redirect(url_for('index'))
 
-
-"""
+@app.route('/HitmanFoo/checkSession')
+def checkSessionHitmanFoo():
+	checksession = session['timeEntered']
+	return render_template('checkSessionHitmanFoo.html', checkSession=checkSession)
+	
+@app.route('/HitmanFoo/popSession')
+def popSessionHitmanFoo():
+	session.pop('timeEntered', None) 
+	flash('Data removed from session & you have been redirected to index page')
+	return redirect(url_for('index))
+	
 """
 biscuit # Session
 
