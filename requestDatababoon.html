@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+{% if x %}
+<h1>Yo Hobo</h1>
+<p>and the result is</p> 
+
+{% else %}
+	
+	<form method=POST enctype=multipart/form-data action="{{ url_for('becomingababoon') }}">
+		<input type="Enter your wish here" x="I_want_to_be_A" placeholder="I_want_to_be_A">
+		<button type="submit" class="btn">Fulfill your wish</button>
+		</fieldset>
+	</form>
+
+	<img src="{{cool}}"/>
+{% endif %}
+
+</body>
+</html>
